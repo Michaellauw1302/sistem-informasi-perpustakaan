@@ -13,6 +13,12 @@ class admin extends CI_Controller
     }
     public function index()
     {
+        $this->load->view('admin/header');
         $this->load->view('admin/index');
+    }
+    function logout()
+    {
+        $this->session->sess_destroy();
+        redirect(base_url() . 'welcome?pesan=logout');
     }
 }

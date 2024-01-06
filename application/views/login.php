@@ -31,11 +31,11 @@
         }
         ?>
         <form method="post" action=" <?= base_url() . 'welcome/login' ?> ">
-            <div class="form-group">
+            <div class="form-grou mb-3">
                 <input type="text" name="username" placeholder="username" class="form-control">
                 <?php echo form_error('username') ?>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <input type="password" name="password" placeholder="password" class="form-control">
                 <?php echo form_error('password') ?>
             </div>
