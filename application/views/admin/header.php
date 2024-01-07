@@ -35,7 +35,24 @@
                     <li class="nav-item">
                         <a class="nav-link active bi bi-box-arrow-right" aria-current="page " href="<?= base_url() . 'admin/logout' ?>"> Logout</a>
                     </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <?= 'halo ' . $this->session->userdata('username'); ?>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item bi bi-lock" href="<?= base_url() . 'admin/ganti_password' ?>">Ganti Password</a></li>
+
+                        </ul>
+                    </li>
                 </ul>
+
+
+
             </div>
+
+
         </div>
+
+
     </nav>

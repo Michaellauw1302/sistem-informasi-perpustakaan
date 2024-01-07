@@ -21,4 +21,31 @@ class admin extends CI_Controller
         $this->session->sess_destroy();
         redirect(base_url() . 'welcome?pesan=logout');
     }
+    public function ganti_password()
+    {
+        $this->load->view('admin/header');
+        $this->load->view('admin/ganti_password');
+        $this->load->view('admin/footer');
+    }
+    function ganti_password_act()
+    {
+        $new_pass = $this->input->post('new_pass');
+        $ulang_pass = $this->input->post('ulang_pass');
+        $this->form_validation->set_rules('new_pass', 'Password Baru', 'required|matches[ulang_pass]');
+        $this->form_validation->set_rules('ulang_pass', 'Ulangi Password Baru', 'required');
+        if ($this->form_validation->run() != false) {
+            $data = array(
+                'password' => ($new_pass)
+            );
+            $w = array(
+                'id_user' => $this->session->userdata('id_user')
+            );
+            $this->m_perpus->update_data($w, $data, 'user');
+            redirect(base_url() . 'admin/ganti_password?pesan=berhasil');
+        } else {
+            $this->load->view('admin/header');
+            $this->load->view('admin/ganti_password');
+            $this->load->view('admin/footer');
+        }
+    }
 }

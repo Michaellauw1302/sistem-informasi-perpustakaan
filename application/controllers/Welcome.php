@@ -31,11 +31,12 @@ class Welcome extends CI_Controller
 				'password' => $password
 			);
 			$data = $this->M_perpus->edit_data($where, 'user');
-			$d = $this->M_perpus->edit_data($where, 'user');
+			$d = $this->M_perpus->edit_data($where, 'user')->row();
+			
 			$cek = $data->num_rows();
 			if ($cek > 0) {
 				$session = array(
-					'id' => $d->id,
+					'id_user' => $d->id_user,
 					'username' => $d->username,
 					'status' => 'login'
 				);
